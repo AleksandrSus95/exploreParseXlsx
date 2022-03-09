@@ -20,14 +20,19 @@ public class testMain {
                 Iterator<Cell> cellIterator = currentRow.iterator();
                 while (cellIterator.hasNext()) {
                     Cell currentCell = cellIterator.next();
-                    elementsExport += currentCell.toString();
+                    elementsExport += " " + currentCell.toString();
                 }
             }
+            fileInputStream.close();
+            file.delete();
         } catch (FileNotFoundException e) {
+            System.out.println("Export file not Found in dir");
             e.printStackTrace();
         } catch (IOException e) {
+            System.out.println("Can't parse file");
             e.printStackTrace();
         }
+
         System.out.println(elementsExport);
     }
 }
